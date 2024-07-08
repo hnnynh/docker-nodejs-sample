@@ -26,7 +26,10 @@ The guide does not contain code and walks you through the commands you need to p
 1. 이미지 크기도 중요하지만 파일 하나에 따라서 빌드 시간에 큰 차이가 있을 수 있다.
 2. 이미지 레이어 순서와 COPY 순서를 고려해야 한다.
 
-    
+이미지 최적화에서 고려해야할 것
+- 크기: Base Image, Multi-stage, RUN 통합, Squash Image Layers, Install only what you need, 
+- 빌드 시간: COPY 
+
 ### Dockerfile Optimization
 1. mount로 캐싱 분리
 2. 결과 비교
