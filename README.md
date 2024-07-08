@@ -4,7 +4,7 @@ This repository is a sample Node.js application for Docker's documentation.<br/>
 Code and Documentation Reference [Node.js language-specific guide](https://docs.docker.com/language/nodejs/)<br/>
 The guide does not contain code and walks you through the commands you need to perform for each course.
 
-## Goal
+## Practice & Performance
 ### Dockerfile
 - ```docker run -p 3000:3000 img:tag```
 - ```docker builder prune``` - 캐시 삭제
