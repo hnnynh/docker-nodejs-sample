@@ -5,7 +5,7 @@ Code and Documentation Reference [Node.js language-specific guide](https://docs.
 The guide does not contain code and walks you through the commands you need to perform for each course.
 
 ## Practice & Performance
-### Dockerfile
+### Dockerfile Image Layer
 - ```docker run -p 3000:3000 img:tag```
 - ```docker builder prune``` - 캐시 삭제
 - 주석 한 줄 또는 패키지 추가 후 재빌드
@@ -27,7 +27,7 @@ The guide does not contain code and walks you through the commands you need to p
 2. 이미지 레이어 순서와 COPY 순서를 고려해야 한다.
 
 이미지 최적화에서 고려해야할 것
-- 크기: Base Image, Multi-stage, RUN 통합, Squash Image Layers, Install only what you need, 
+- 크기: Base Image, Multi-stage, RUN 통합, Squash Image Layers, Install only what you need
 - 빌드 시간: COPY 
 
 ### Dockerfile Optimization
