@@ -48,6 +48,7 @@ The guide does not contain code and walks you through the commands you need to p
 
 ### Docker Compose
 - server, postgres 컨테이너 실행
+- ```docker compose up/down```
 - docker-compose vs docker compose
     - docker-compose -> docker copmose
     - docker cli에 통합
