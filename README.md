@@ -31,12 +31,40 @@ The guide does not contain code and walks you through the commands you need to p
 - 빌드 시간: COPY 
 
 ### Dockerfile Optimization
-1. mount로 캐싱 분리
-2. 결과 비교
+- mount로 패키지, 캐시 분리, RUN 통합
+    - 초기: 9.8s
+    - 주석 + 재빌드: 0.8s
+    - 패키지 + 재빌드: 4.3s
+
+- ```docker scout```
+    - NODE_VERSION 업데이트
+
+#### Conclusion
+
+- sync 주의
+    ```
+    `npm ci` can only install packages when your package.json and package-lock.json or npm-shrinkwrap.json are in sync. Please update your lock file with `npm install` before continuing.
+    ```
 
 ### Docker Compose
-### Docker Swarm
+- server, postgres 컨테이너 실행
+- docker-compose vs docker compose
+    - docker-compose -> docker copmose
+    - docker cli에 통합
 
+### Docker Swarm ➡️ Kubernetes
+- docker push access denied
+    - 로그인 확인
+    - 이미지 태그 바꾸기
+    ```docker tag SOURCE_IMAGE[:TAG] USERNAME/TARGET_IMAGE[:TAG]```
+    -  ```docker push USERNAME/TARGET_IMAGE```
+
+- 적용 - ```kubectl apply -f docker-node-k8s.yaml```
+- 삭제 - ```kubectl delete -f docker-node-k8s.yaml```
+- Scale
+    ```kubectl scale --replicas=n deployment <deploymentname>```
+    - describe 상태 상세 조회
+    
 ## Reference
 - [Docker optimization guide: 8 tricks to optimize your Docker image size](https://www.augmentedmind.de/2024/06/11/optimize-docker-image-size/)
 - [Containerize a Node.js application](https://docs.docker.com/language/nodejs/containerize/)
