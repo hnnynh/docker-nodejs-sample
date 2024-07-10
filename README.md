@@ -21,6 +21,8 @@ The guide does not contain code and walks you through the commands you need to p
     - 초기: 8.6s
     - 주석 + 재빌드: 0.4s
     - 패키지 + 재빌드: 5.6s
+4. DB Volume 연결
+    - ```compose.yaml```에 선언하여 postgres 컨테이너와 데이터를 volume으로 관리
 
 #### Conclusion
 1. 이미지 크기도 중요하지만 파일 하나에 따라서 빌드 시간에 큰 차이가 있을 수 있다.
@@ -31,10 +33,14 @@ The guide does not contain code and walks you through the commands you need to p
 - 빌드 시간: COPY 
 
 ### Dockerfile Optimization
-- mount로 패키지, 캐시 분리, RUN 통합
+- mount로 패키지, 캐시 분리, RUN 통합 - 164.91MB
     - 초기: 9.8s
     - 주석 + 재빌드: 0.8s
     - 패키지 + 재빌드: 4.3s
+
+- MultiStage build 
+    - Node.js 필수 - ```alpine:latest``` 활용 불가
+    - 같은 ```node:${NODE_VERSION}-alpine``` 이미지를 활용으로 극적인 최적화 X
 
 - ```docker scout```
     - NODE_VERSION 업데이트
@@ -45,6 +51,9 @@ The guide does not contain code and walks you through the commands you need to p
     ```
     `npm ci` can only install packages when your package.json and package-lock.json or npm-shrinkwrap.json are in sync. Please update your lock file with `npm install` before continuing.
     ```
+
+- Go 최적화
+    - ```alpine``` 이미지로 멀티 스테이지 빌드가 가능한 정적 바이너리 파일을 활용하는 go 애플리케이션은 멀티 스테이지 빌드를 활용한 극적인 최적화가 가능할 것 같다.
 
 ### Docker Compose
 - server, postgres 컨테이너 실행
