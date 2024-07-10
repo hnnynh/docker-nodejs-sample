@@ -23,6 +23,8 @@ The guide does not contain code and walks you through the commands you need to p
     - 패키지 + 재빌드: 5.6s
 4. DB Volume 연결
     - ```compose.yaml```에 선언하여 postgres 컨테이너와 데이터를 volume으로 관리
+5. 네트워크 설정
+    - ```docker run -it --network host <이미지>```
 
 #### Conclusion
 1. 이미지 크기도 중요하지만 파일 하나에 따라서 빌드 시간에 큰 차이가 있을 수 있다.
