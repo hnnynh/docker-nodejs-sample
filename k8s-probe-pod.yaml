@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+    name: probe-test
+spec:
+    containers:
+        - name: todo-site
+          image: hnnynh/docker-nodejs-sample-server:probe
+          readinessProbe:
+              httpGet:
+                  path: /healthz
+                  port: 3000
+              initialDelaySeconds: 5
+              periodSeconds: 5
+          livenessProbe:
+              httpGet:
+                  path: /healthz
+                  port: 3000
+              initialDelaySeconds: 3
+              periodSeconds: 5
+          startupProbe:
+              httpGet:
+                  path: /healthz
+                  port: 3000
+              initialDelaySeconds: 30
+              periodSeconds: 10
